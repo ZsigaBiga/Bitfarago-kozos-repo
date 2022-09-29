@@ -1,0 +1,70 @@
+:root{
+    font-size: 16px;
+    --responsive-size: 40vw;
+}
+
+body{
+    background-color: azure;
+    font-family: Consolas;
+}
+
+div{
+    margin-bottom: 2rem;
+}
+
+.centerDiv{
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.oraKeret{
+    background-image: url("kepek/clock.png");    
+    background-size: var(--responsive-size);
+    background-repeat: no-repeat;
+    height: var(--responsive-size);
+    position: relative;
+    width: var(--responsive-size);
+    border: 2px solid black;
+    border-radius: 100%;
+}
+
+.oraMutato{
+    width: 7.5%;
+    height: 25%;
+    position: relative;
+    left: 46.25%;
+    top: 25%;
+    -webkit-transform: rotateX(0deg);
+    transform: rotate(0deg);
+    transform-origin: 50% 100%;
+}
+
+.percMutato{
+    position: absolute;
+    left: 47.5%;
+    top: 15%;
+    width: 5%;
+    height: 35%;
+    transform-origin: 50% 100%;
+}
+
+.mpMutato{
+    position: absolute;
+    left: 49.25%;
+    top: 15%;
+    width: 1.5%;
+    height: 35%;
+    transform-origin: 50% 100%;
+}
+
+.digitIdo{
+    text-align: center;
+    width: var(--responsive-size);
+    height: 6.75vw;
+    border: 3px solid black;
+    border-radius: 15%;
+}
+
+.digitIdo p {
+    font-size: 2.25vw;
+}
