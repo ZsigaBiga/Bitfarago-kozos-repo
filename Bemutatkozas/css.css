@@ -1,0 +1,100 @@
+.container
+{
+    height: 100vh;
+    width: 100%;
+    background-image: url("kepek/background.png");
+    background-position: center;
+    background-size: cover;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.bar
+{
+    width: 100%;
+    height: 15vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+iframe
+{
+    width: 300px;
+    height: auto;
+    cursor: pointer;
+}
+
+nav{
+    flex: 1;
+    padding-left: 60px;
+}
+
+nav ul li{
+    display:inline-block;
+    list-style: none;
+    margin: 0px 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #333;
+}
+
+.tartalom h1{
+    font-size: 60px;
+    font-weight: 100;
+    margin-top: 24px;
+    margin-bottom: 15px;
+    color: #232d60;
+}
+
+.tartalom p{
+    font-size: 20px;
+    color: #6a7199;
+}
+
+.tartalom
+{
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+button
+{
+    display: inline-block;
+    background: linear-gradient(45deg, #87adfe, #ff77cd);
+    border-radius: 6px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    color: white;
+    box-shadow: 3px 8px 22px rgba(94,28,68,0.15);
+}
+
+.nyilak
+{
+    margin-top: 40px;
+    display: flex;
+}
+
+.nyilak img
+{
+    width: 40px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.portre
+{
+   height:90%;
+    position: absolute;
+    bottom: 0;
+    right: 16px;
+}
+
+#leiras
+{
+    text-align: left;
+}
