@@ -4,8 +4,10 @@
 }
 
 body{
-    background-color: azure;
+    background-color: transparent;
     font-family: Consolas;
+    width: 45%;
+
 }
 
 div{
@@ -17,14 +19,17 @@ div{
     margin-bottom: 2rem;
 }
 
+.osszefogo{
+    background-color: gray;
+}
+
 .oraKeret{
-    background-image: url("kepek/clock.png");    
+    background-image: url("kepek/clock.png");
     background-size: var(--responsive-size);
     background-repeat: no-repeat;
     height: var(--responsive-size);
     position: relative;
     width: var(--responsive-size);
-    border: 2px solid black;
     border-radius: 100%;
 }
 
