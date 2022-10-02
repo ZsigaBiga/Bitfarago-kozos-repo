@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmkereső</title>
+</head>
+<body>
+    
+    <div class="menu_bar">
+        <h1 class="logo">AIATHKM <span>(Az Index A Tömb Határain Kívülre Mutatott)</span></h1>
+        <ul>
+            <li><a href="#">Kezdőlap</a></li>
+        </ul>
+    </div>
+    <section class="image">
+        &nbsp;
+
+        <h1 id="first">Válassza ki a kategóriákat</h1>
+        <div class="categories">
+            <div>
+                <label>
+                    <input type="checkbox" id="actionCheckbox"><span>Akció</span>
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="checkbox" id="dramaCheckbox"><span>Dráma</span>
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="checkbox" id="thrillerCheckbox"><span>Thriller</span>
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="checkbox" id="fantasyCheckbox"><span>Fantasztikus</span>
+                </label>
+            </div>           
+        </div>
+        <button onclick="filmek()">Keresés</button>
+        <div id="moviediv">
+            <table id="show">
+                <tr id="firstRow"></tr>
+            </table>
+        </div>
+        <p id="proba"></p>
+
+        <div class="ora">
+            <div class="oraKeret centerDiv" id="oraKeret">       
+                <img src="Kepek/mutato.png" class="oraMutato" id="oraMut">
+                <img src="Kepek/mutato.png" class="percMutato" id="percMut">
+                <img src="Kepek/mutato.png" class="mpMutato" id="mpMut">
+            </div>
+            <div class="digitIdo centerDiv"> 
+                <p onload="time()" id="idomezo"></p>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
