@@ -14,7 +14,7 @@
 }
 body{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
-
+    background-color: #555;
 }
 #background-image{
     background-repeat: no-repeat;
@@ -213,8 +213,8 @@ img{
 
 .ora{
     position: fixed;
-    top: 48.5%;
-    left: 75%;
+    top: 53.5%;
+    left: 63.5%;
     width: 50%;
     height: 50%;
 }

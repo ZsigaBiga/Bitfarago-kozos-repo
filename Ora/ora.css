@@ -3,10 +3,14 @@
     --responsive-size: 40vw;
 }
 
+iframe {
+    background-color: aqua;
+}
+
 body{
-    background-color: transparent;
     font-family: Consolas;
     width: 45%;
+    margin: 0 auto;
 }
 
 div{
@@ -19,7 +23,7 @@ div{
 }
 
 .osszefogo{
-    background-color: gray;
+    border-radius: 10%;
 }
 
 .oraKeret{
@@ -76,5 +80,5 @@ div{
 @media only screen and (max-width: 600px), (max-height: 600px){
     .digitIdo{
         display: none;
-    }    
+    }
 }
