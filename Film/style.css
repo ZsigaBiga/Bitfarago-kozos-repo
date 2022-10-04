@@ -148,7 +148,8 @@ body{
     text-align: center;
 }
 img{
-    max-width: 20vw;     max-height: 20vw;
+    max-width: 20vw;
+    max-height: 20vw;
 }
 #searchbtn{
     background-color:var(--color-white);
