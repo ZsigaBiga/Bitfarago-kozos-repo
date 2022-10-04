@@ -16,11 +16,6 @@ body{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
     background-color: #555;
 }
-#background-image{
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-}
 .menu_bar{
     background-color: var(--color-black);
     height: 5rem;
@@ -81,7 +76,7 @@ body{
     background-image: url(Kepek/background-image.jpg);
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
 }
 #first
 {
@@ -148,73 +143,6 @@ body{
     text-align: center;
 }
 img{
-    max-width: 200px;
-    max-height: 200px;
-}
-
-.centerDiv{
-    margin: 0 auto;
-    margin-bottom: 2rem;
-}
-
-.oraKeret{
-    background-image: url("Kepek/clock.png");    
-    background-size: var(--responsive-size);
-    background-repeat: no-repeat;
-    height: var(--responsive-size);
-    position: relative;
-    width: var(--responsive-size);
-    border: 2px solid black;
-    border-radius: 100%;
-}
-
-.oraMutato{
-    width: 7.5%;
-    height: 25%;
-    position: relative;
-    left: 46.25%;
-    top: 25%;
-    -webkit-transform: rotateX(0deg);
-    transform: rotate(0deg);
-    transform-origin: 50% 100%;
-}
-
-.percMutato{
-    position: absolute;
-    left: 47.5%;
-    top: 15%;
-    width: 5%;
-    height: 35%;
-    transform-origin: 50% 100%;
-}
-
-.mpMutato{
-    position: absolute;
-    left: 49.25%;
-    top: 15%;
-    width: 1.5%;
-    height: 35%;
-    transform-origin: 50% 100%;
-}
-
-.digitIdo{
-    text-align: center;
-    width: var(--responsive-size);
-    height: 6.75vw;
-    border: 3px solid black;
-    border-radius: 15%;
-    color: #fff;
-    padding: 0.625rem;
-}
-
-.digitIdo p {
-    font-size: 3.25vw;
-}
-
-.ora{
-    position: fixed;
-    top: 53.5%;
-    left: 63.5%;
-    width: 50%;
-    height: 50%;
+    max-width: 20vw;
+    max-height: 20vw;
 }

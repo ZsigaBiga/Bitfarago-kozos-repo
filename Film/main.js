@@ -1,7 +1,6 @@
 let n = 0;
 function filmek()
-{
-    
+{  
     let actionMovies = ["A bolygó neve: Halál", "Mátrix", "Gladiátor", "A szürke ember"];
     let actionYears = ["(1986)", "(1999)","(2000)", "(2022)"];
     let actionPictures = ["bolygo.jpg", "matrix.jpg","gladiator.jpg", "szurkeember.jpg"];
@@ -10,8 +9,10 @@ function filmek()
     let thrillerPictures = ["vegtelen.jpg", "behatolas.jpg", "veszelyes.jpg", "mely.jpg"];
     let dramaMovies = ["A keresztapa", "A remény rabjai", "Halálsoron", "Low Tide"];
     let dramaYears = ["(1972)", "(1994)", "(1999)", "(2019)"];
+    let dramaPictures = ["keresztapa.jpg", "remeny.jpg", "halalsor.jpg", "lowtide.jpg"];
     let fantasyMovies = ["A birodalom visszavág", "Coco", "Szörny Rt.", "így neveld a sárkányodat"];
     let fantasyYears = ["(1980)", "(2017)", "(2001)", "(2010)"];
+    let fantasyPictures = ["birodalom.jpg", "coco.jpg", "szorny.jpg", "sarkany.jpg"];
 
     let act = false, thrill = false, dram = false, fant = false; 
 
