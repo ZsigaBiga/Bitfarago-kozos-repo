@@ -20,6 +20,7 @@ body{
     background-size: 400% 400%;
     position: relative;
     animation: change 20s ease-in-out infinite;
+    background-repeat: no-repeat;
 }
 @keyframes change{
     0%{
@@ -156,11 +157,16 @@ img{
     font-size: larger;
     cursor: pointer;
     border-radius: 20%;
-    align-items: center;
     margin: 1.2rem;
-    width: 100px;
-    height: 50px;
+    width: 6.25rem;
+    height: 3.125rem;
+    margin: 1.2em auto;
 }
 #searchbtn:active{
-    background-color: rgba(255,255,255,0.1);
+    background-color:lightgreen;
+}
+@media only screen and (max-width:600px){
+    :root{
+        font-size: 3vw;
+    }
 }
