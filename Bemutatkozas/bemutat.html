@@ -19,25 +19,27 @@
             <iframe src="../Ora/ora.html" frameborder="0" class="ora"></iframe>
             <nav>
                 <ul>
-                    <li><a href="">Menü</a></li>
+                    <li><a href="../index.html">Menü</a></li>
+                    <li><a href="https://www.ipariszakkozep.hu/">Veszprémi Szakképzési Centrum Ipari Technikum</a></li>
                 </ul>
             </nav>
         </div>
 
         <div class="tartalom">
+
             <button id="kategoriak">Csapattagok</button>
-            <img src="kepek/áron.jpg" class="portre">
+            <button id="kategoriak">Felkészítő tanár</button>
+            <button id="kategoriak">Galléria</button>
+            <img src="kepek/aron.jpg" id="portre">
             <div id="valasztott">
                 <h1 id="nev">Szász Áron</h1>
-                <p class="leiras">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-                </p> 
-                
+                <p id="leiras" style="display: none;"></p> 
             </div>
 
             <div class="nyilak">
-                <img src="kepek/back-arrow.png">
-                <button>Leírás</button>
-                <img src="kepek/next-arrow.png">
+                <img src="kepek/back-arrow.png" onclick="hatra()">
+                <button onclick="leiras()">Leírás</button>
+                <img src="kepek/next-arrow.png" onclick="elore()">
             </div>
         </div>
 
