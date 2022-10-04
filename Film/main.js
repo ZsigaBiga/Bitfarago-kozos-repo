@@ -14,14 +14,9 @@ function filmek()
     let fantasyYears = ["(1980)", "(2017)", "(2001)", "(2010)"];
     let fantasyPictures = ["birodalom.jpg", "coco.jpg", "szorny.jpg", "sarkany.jpg"];
 
-    let act = false, thrill = false, dram = false, fant = false; 
-
-
     var table = document.getElementById("show");
     
-
     if(document.getElementById("actionCheckbox").checked){
-        act = true;
         var row = document.createElement('tr');
         for(let i = 0; i < actionMovies.length; i++){    
             let y = document.createElement('td');
@@ -33,9 +28,8 @@ function filmek()
         }   
         table.insertBefore(row, table.firstChild);      
     }
-    let idx = 0;
+
     if(document.getElementById("thrillerCheckbox").checked){
-        thrill = true;
         var row = document.createElement('tr');
         for(let i = 0; i < thrillerMovies.length; i++){    
             let y = document.createElement('td');
@@ -45,12 +39,10 @@ function filmek()
             y.appendChild(img);      
             row.appendChild(y);
         }   
-        table.insertBefore(row, table.firstChild); 
-        idx++;    
+        table.insertBefore(row, table.firstChild);    
     }
 
     if(document.getElementById("dramaCheckbox").checked){
-        dram = true;
         var row = document.createElement('tr');
         for(let i = 0; i < dramaMovies.length; i++){    
             let y = document.createElement('td');
@@ -64,7 +56,6 @@ function filmek()
     }
 
     if(document.getElementById("fantasyCheckbox").checked){
-        fant = true;
         var row = document.createElement('tr');
         for(let i = 0; i < fantasyMovies.length; i++){    
             let y = document.createElement('td');
@@ -75,21 +66,5 @@ function filmek()
             row.appendChild(y);
         }   
         table.insertBefore(row, table.firstChild);     
-    }
-
-    let nemkivanatos = [];
-
-    if(act == false){
-        nemkivanatos += actionMovies;
-    }
-    if(dram == false){
-        nemkivanatos += dramaMovies;
-    }
-    if(fant == false)
-    {
-        nemkivanatos += fantasyMovies;
-    }
-    if(thrill == false){
-        nemkivanatos += thrillerMovies;
     }
 }

@@ -14,10 +14,9 @@
 }
 body{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
-    background-color: #555;
     height: 100vh;
     width: 100%;
-    background: linear-gradient(-90deg, #EE7752, #E73C7E, green, #2305AB);
+    background: linear-gradient(45deg, #EE7752, #E73C7E, green, lightblue);
     background-size: 400% 400%;
     position: relative;
     animation: change 20s ease-in-out infinite;
@@ -93,18 +92,15 @@ body{
     color: var(--color-white);
     padding: 1.875rem;   
     margin: 1.875rem;
-    border: 2px solid gray;
-    background-color: rgba(135, 125, 123, 0.6);
-    border-radius: 5%;
     color:whitesmoke;
 }
 .categories{
-    max-width: 75rem;
-    display: flex;
-    flex-wrap: wrap;
+    width: 100%;
+    display:flex;
+    flex-wrap:nowrap;
 }
 .categories div{
-    margin: 0.625rem;  
+    margin: 0 auto;  
 }
 .categories div label{
     cursor:pointer;
@@ -155,7 +151,7 @@ img{
     max-width: 20vw;     max-height: 20vw;
 }
 #searchbtn{
-    background-color:gray;
+    background-color:var(--color-white);
     font-size: larger;
     cursor: pointer;
     border-radius: 20%;
@@ -163,8 +159,7 @@ img{
     margin: 1.2rem;
     width: 100px;
     height: 50px;
-    background: radial-gradient(90deg, #EE7752, #E73C7E, green, lightblue);
-    background-size: 400% 400%;
-    position: relative;
-    animation: change 20s ease-in-out infinite;
+}
+#searchbtn:active{
+    background-color: rgba(255,255,255,0.1);
 }
