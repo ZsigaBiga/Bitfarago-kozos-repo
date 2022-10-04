@@ -27,9 +27,8 @@
 
         <div class="tartalom">
 
-            <button id="kategoriak">Csapattagok</button>
-            <button id="kategoriak">Felkészítő tanár</button>
-            <button id="kategoriak">Galléria</button>
+            <button onclick="csapat()">Csapattagok</button>
+            <button onclick="gall()">Galléria</button>
             <img src="kepek/aron.jpg" id="portre">
             <div id="valasztott">
                 <h1 id="nev">Szász Áron</h1>
@@ -38,7 +37,7 @@
 
             <div class="nyilak">
                 <img src="kepek/back-arrow.png" onclick="hatra()">
-                <button onclick="leiras()">Leírás</button>
+                <button onclick="leiras()" id = "leirogomb">Leírás</button>
                 <img src="kepek/next-arrow.png" onclick="elore()">
             </div>
         </div>
