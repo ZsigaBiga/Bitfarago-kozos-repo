@@ -157,11 +157,15 @@ img{
 }
 #searchbtn{
     background-color:gray;
-    font-size: large;
+    font-size: larger;
     cursor: pointer;
-    border-radius: 10%;
+    border-radius: 20%;
     align-items: center;
     margin: 1.2rem;
-    max-width: 200px;
-    max-height: 200px;
+    width: 100px;
+    height: 50px;
+    background: radial-gradient(90deg, #EE7752, #E73C7E, green, lightblue);
+    background-size: 400% 400%;
+    position: relative;
+    animation: change 20s ease-in-out infinite;
 }
