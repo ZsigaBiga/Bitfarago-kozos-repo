@@ -15,6 +15,23 @@
 body{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
     background-color: #555;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(-90deg, #EE7752, #E73C7E, green, #2305AB);
+    background-size: 400% 400%;
+    position: relative;
+    animation: change 20s ease-in-out infinite;
+}
+@keyframes change{
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
 }
 .menu_bar{
     background-color: var(--color-black);
@@ -69,14 +86,6 @@ body{
 .dropdown_menu ul li{
     width: 9.375rem;
     padding: 0.625rem;
-}
-.image{
-    height: 100vh;
-    width: 100%;
-    background-image: url(Kepek/background-image.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: repeat;
 }
 #first
 {
@@ -145,4 +154,12 @@ body{
 img{
     max-width: 20vw;
     max-height: 20vw;
+}
+#searchbtn{
+    background-color:gray;
+    font-size: large;
+    cursor: pointer;
+    border-radius: 10%;
+    align-items: center;
+    margin: 1.2rem;
 }
