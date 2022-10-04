@@ -3,10 +3,6 @@
     --responsive-size: 40vw;
 }
 
-iframe {
-    background-color: aqua;
-}
-
 body{
     font-family: Consolas;
     width: 45%;

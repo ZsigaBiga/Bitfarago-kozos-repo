@@ -16,11 +16,11 @@
     </div>-->
     <div class="container">
         <div class="bar">
-            <iframe src="../Ora/ora.html" frameborder="0" class="ora"></iframe>
+            <iframe src="../Ora/ora.html" scrolling="no" frameborder="0" class="ora"></iframe>
             <nav>
                 <ul>
                     <li><a href="../index.html">Menü</a></li>
-                    <li><a href="https://www.ipariszakkozep.hu/">Veszprémi Szakképzési Centrum Ipari Technikum</a></li>
+                    <li><a href="https://www.ipariszakkozep.hu/">Ipari Oldal</a></li>
                 </ul>
             </nav>
         </div>
@@ -28,6 +28,7 @@
         <div class="tartalom">
 
             <button onclick="csapat()">Csapattagok</button>
+            <button onclick="felkTan()">Felkészítő tanár</button>
             <button onclick="gall()">Galléria</button>
             <img src="kepek/aron.jpg" id="portre">
             <div id="valasztott">
@@ -36,9 +37,9 @@
             </div>
 
             <div class="nyilak">
-                <img src="kepek/back-arrow.png" onclick="hatra()">
-                <button onclick="leiras()" id = "leirogomb">Leírás</button>
-                <img src="kepek/next-arrow.png" onclick="elore()">
+                <img src="kepek/back-arrow.png" onclick="hatra()" id="hatraNyil">
+                <button onclick="leiras()" id = "leirogomb" href="#leiras">Leírás</button>
+                <img src="kepek/next-arrow.png" onclick="elore()" id="eloreNyil">
             </div>
         </div>
 

@@ -1,5 +1,3 @@
-//there is nothing here yet, you fool >:D
-
 let leirasClick = false;
 
 let tagClick = true;
@@ -18,12 +16,21 @@ const kepek2 = ["kepek/cica.jpg", "kepek/pad.jpg", "kepek/homokvar.jpg", "kepek/
 
 const gallNevek = ["Fekete macska", "Őszi naplemente", "Impresszív homokvár", "Falevél", "Kokain"]
 
+location.style = "scroll-behavior: smooth;";
+
 
 function gall()
 {
-    document.getElementById("portre").src= kepek2[galleria];
+    let leirasE = document.getElementById("leiras");
+    let portreE = document.getElementById("portre");
+    let nevE = document.getElementById("nev");
 
-    document.getElementById("nev").innerText = gallNevek[galleria];
+    document.getElementById("hatraNyil").style = "display: show";
+    document.getElementById("eloreNyil").style = "display: show";
+
+    portreE.src= kepek2[galleria];
+
+    nevE.innerText = gallNevek[galleria];
 
     galleriaClick = true;
     tagClick = false;
@@ -31,18 +38,26 @@ function gall()
     leirasClick = false;
 
     document.getElementById("leirogomb").style = "display: none";
-    document.getElementById("leiras").style = "display: none";
+    leirasE.style = "display: none";
 }
 
 function csapat()
 {
+
+    let leirasE = document.getElementById("leiras");
+    let portreE = document.getElementById("portre");
+    let nevE = document.getElementById("nev");
+
+    document.getElementById("hatraNyil").style = "display: show";
+    document.getElementById("eloreNyil").style = "display: show";
+
     document.getElementById("leirogomb").style = "display: show";
 
-    document.getElementById("leiras").innerText = bemutatkozasok[tag];
+    leirasE.innerText = bemutatkozasok[tag];
         
-    document.getElementById("portre").src= kepek[tag];
+    portreE.src= kepek[tag];
     
-    document.getElementById("nev").innerText = nevek[tag];
+    nevE.innerText = nevek[tag];
 
     tagClick = true;
     galleriaClick = false;
@@ -50,43 +65,85 @@ function csapat()
 
 function leiras()
 {
-    document.getElementById("leiras").innerText = bemutatkozasok[tag];
+    let leirasE = document.getElementById("leiras");
+
+    leirasE.innerText = bemutatkozasok[tag];
 
     if(leirasClick==false)
     {
         leirasClick=true;
 
-        document.getElementById("leiras").style ="display: show;"
+        leirasE.style ="display: show;"
     }
     else
     {
         leirasClick=false;
-        document.getElementById("leiras").style ="display: none;"
+        leirasE.style ="display: none;"
     }
+}
+
+function felkTan()
+{
+    let leirasE = document.getElementById("leiras");
+    let portreE = document.getElementById("portre");
+    let nevE = document.getElementById("nev");
+
+    document.getElementById("leirogomb").style = "display: none";
+    leirasE.style = "display: show";
+
+    leirasE.innerText = bemutatkozasok[3];
+
+    portreE.src = kepek[3];
+
+    nevE.innerText = nevek[3];
+
+    document.getElementById("hatraNyil").style = "display: none";
+    document.getElementById("eloreNyil").style = "display: none";
+
+    tagClick = false;
+    galleriaClick = false;
 }
 
 function hatra()
 {
+    let leirasE = document.getElementById("leiras");
+    let portreE = document.getElementById("portre");
+    let nevE = document.getElementById("nev");
+
     if(tagClick == true)
     {
+        portreE.classList.remove('anim');
+        portreE.offsetLeft;
+
         if(tag == 0)
         {
-            tag = 3;
+            tag = 2;
         }
         else
         {
             tag--;
         }
         
-        document.getElementById("leiras").innerText = bemutatkozasok[tag];
-        
-        document.getElementById("portre").src= kepek[tag];
-        
-        document.getElementById("nev").innerText = nevek[tag];
+        portreE.classList.add('anim');
+
+        setTimeout(() => {
+
+            leirasE.innerText = bemutatkozasok[tag];
+            
+            portreE.src= kepek[tag];
+            
+            nevE.innerText = nevek[tag];
+
+            location.href ="#";
+            location.href ="#leiras";
+        }, 1000);
     }
     
     if(galleriaClick == true)
     {
+        portreE.classList.remove('anim');
+        portreE.offsetLeft;
+
         if(galleria == 0)
         {
             galleria = 4;
@@ -96,19 +153,29 @@ function hatra()
             galleria--;
         }
         
-        document.getElementById("portre").src= kepek2[galleria];
+        portreE.classList.add('anim');
 
-        document.getElementById("nev").innerText = gallNevek[galleria];
-    }
-
+        setTimeout(() => {
+            
+            portreE.src= kepek2[galleria];
     
+            nevE.innerText = gallNevek[galleria];
+        }, 1000);
+    }    
 }
 
 function elore()
 {
+    let leirasE = document.getElementById("leiras");
+    let portreE = document.getElementById("portre");
+    let nevE = document.getElementById("nev");
+
     if(tagClick == true)
     {
-        if(tag == 3)
+        portreE.classList.remove('anim');
+        portreE.offsetLeft;
+
+        if(tag == 2)
         {
             tag = 0;
         }
@@ -116,16 +183,32 @@ function elore()
         {
             tag++;
         }
+
+        portreE.classList.add('anim');
     
-        document.getElementById("leiras").innerText = bemutatkozasok[tag];
-    
-        document.getElementById("portre").src= kepek[tag];
-    
-        document.getElementById("nev").innerText = nevek[tag];
+        setTimeout(() => {
+            
+            leirasE.innerText = bemutatkozasok[tag];
+        
+            portreE.src= kepek[tag];
+        
+            nevE.innerText = nevek[tag];
+
+            location.href = "#";
+            location.href = "#leiras";
+        }, 1000);
+
+
     }
 
     if(galleriaClick == true)
     {
+        let portreE = document.getElementById("portre");
+        let nevE = document.getElementById("nev");
+
+        portreE.classList.remove('anim');
+        portreE.offsetLeft;
+
         if(galleria == 4)
         {
             galleria = 0;
@@ -134,10 +217,14 @@ function elore()
         {
             galleria++;
         }
-        
-        document.getElementById("portre").src= kepek2[galleria];
 
-        document.getElementById("nev").innerText = gallNevek[galleria];
-    }
+        portreE.classList.add('anim');
+        
+        setTimeout(() => {
+            
+            portreE.src= kepek2[galleria];
     
+            nevE.innerText = gallNevek[galleria];
+        }, 990);
+    }
 }
