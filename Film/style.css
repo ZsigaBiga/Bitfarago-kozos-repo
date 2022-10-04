@@ -152,6 +152,7 @@ body{
     text-align: center;
 }
 img{
+<<<<<<< HEAD
     max-width: 20vw;
     max-height: 20vw;
 }
@@ -162,4 +163,8 @@ img{
     border-radius: 10%;
     align-items: center;
     margin: 1.2rem;
+=======
+    max-width: 200px;
+    max-height: 200px;
+>>>>>>> 581b36055feb44aa9e0a3367162e0dbbf31c0c90
 }
