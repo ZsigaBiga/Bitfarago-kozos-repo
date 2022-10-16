@@ -147,6 +147,7 @@ body{
     padding: 0.625rem;
     margin: 0.625rem;
     text-align: center;
+    font-size: large;
 }
 img{
     max-width: 20vw;
