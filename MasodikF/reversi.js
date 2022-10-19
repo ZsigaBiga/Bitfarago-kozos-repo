@@ -147,12 +147,8 @@ function jatekSetup(){
     var kozep = meret / 2 - 1;
     tablaData[kozep][kozep].szin = false; 
     tablaData[kozep][kozep + 1].szin = true;
-    tablaData[kozep - 2][kozep + 1].szin = true;
-    tablaData[kozep - 1][kozep + 1].szin = false;
-    tablaData[kozep - 1][kozep + 2].szin = false;
     tablaData[kozep + 1][kozep].szin = true;
     tablaData[kozep + 1][kozep + 1].szin = false;
-    tablaData[kozep + 2][kozep + 1].szin = false;
 
 
     for (let i = 0; i < meret; i++) {
@@ -196,10 +192,18 @@ function jatekSetup(){
 
 function kor(beSzin){
 
+    for(let i = 0; i < meret; i++){
+
+        for(let j= 0; j < meret; j++){
+            var negyzet = document.getElementById(''+i+''+j);
+            negyzet.style.backgroundColor = 'transparent';
+        }
+    }
+
     for (let i = 0; i < meret; i++) {
         
         for(let j = 0; j < meret; j++){
-            
+
             if(tablaData[i][j].szin == beSzin){
                 szomszedCheck(tablaData[i][j], i, j);                
             }
@@ -216,6 +220,8 @@ function szomszedCheck(cella, bei, bej){
     for(let i = 0; i < 4; i++){
         let idx1;
         let idx2; 
+        let x;
+        let y;
         
         let masSzinVolt1 = false;
         let masSzinVolt2 = false;
@@ -240,6 +246,10 @@ function szomszedCheck(cella, bei, bej){
                             tablaData[idx1][bej].kattint = true;
                             var cell = document.getElementById(''+idx1+bej);
                             cell.style.backgroundColor = "red";
+                            var fordit = !cella.szin; 
+                            cell.addEventListener('click', function(){
+                                kor(fordit);
+                            });
                             idx1 = -1;
                         }
                         else if((tablaData[idx1][bej].szin == cella.szin || tablaData[idx1][bej].szin == null ) && !masSzinVolt1 || (tablaData[idx1][bej].szin == cella.szin || tablaData[idx1][bej].szin == null ) && masSzinVolt1){
@@ -259,6 +269,9 @@ function szomszedCheck(cella, bei, bej){
                             tablaData[idx2][bej].kattint = true;
                             var cell = document.getElementById(''+idx2+bej);
                             cell.style.backgroundColor = "red";
+                            cell.addEventListener('click', function(){
+                                kor(fordit);
+                            });
                             idx2 = meret;
                         }
                         else if((tablaData[idx2][bej].szin == cella.szin || tablaData[idx2][bej].szin == null) && !masSzinVolt2 || (tablaData[idx2][bej].szin == cella.szin || tablaData[idx2][bej].szin == null ) && masSzinVolt2){
@@ -277,8 +290,6 @@ function szomszedCheck(cella, bei, bej){
                 masSzinVolt1 = false;
                 masSzinVolt2 = false;
 
-                veszelyszok = 0;
-
                 while(idx1 != -1 || idx2 != meret){
 
                     if (idx1 != -1) {
@@ -292,6 +303,9 @@ function szomszedCheck(cella, bei, bej){
                             tablaData[bei][idx1].kattint = true;
                             var cell = document.getElementById(''+bei+idx1);
                             cell.style.backgroundColor = "red";
+                            cell.addEventListener('click', function(){
+                                kor(fordit);
+                            });
                             idx1 = -1;
                         }
                         else if((tablaData[bei][idx1].szin == cella.szin || tablaData[bei][idx1].szin == null ) && !masSzinVolt1 || (tablaData[bei][idx1].szin == cella.szin || tablaData[bei][idx1].szin == null ) && masSzinVolt1){
@@ -311,27 +325,33 @@ function szomszedCheck(cella, bei, bej){
                             tablaData[bei][idx2].kattint = true;
                             var cell = document.getElementById(''+bei+idx2);
                             cell.style.backgroundColor = "red";
+                            cell.addEventListener('click', function(){
+                                kor(fordit);
+                            });
                             idx2 = meret;
                         }
                         else if((tablaData[bei][idx2].szin == cella.szin || tablaData[bei][idx2].szin == null) && !masSzinVolt2 || (tablaData[bei][idx2].szin == cella.szin || tablaData[bei][idx2].szin == null ) && masSzinVolt2){
                             idx2 = meret;
                         }
                     }
-
-                    veszelyszok++;
-
-                    if(veszelyszok > 9){
-                        console.log('hulebuzta');
-                        console.log(idx1);
-                        break;
-                    }
                 }
                 break;
 
                 //Srég-balradőlt
                 case 2:
-                idx1 = Number(bei);
+                idx1 = Number(bei - 1);
+                x = bej - 1;
+                if(bej - 1 < 0){
+                    x = 0;
+                }else{
+                    x = bej - 1;
+                }
                 idx2 = Number(bei + 1);
+                if(bej + 1 > meret - 1){
+                    y = meret - 1;
+                }else{
+                    y = bej + 1;
+                }
 
                 masSzinVolt1 = false;
                 masSzinVolt2 = false;
@@ -340,20 +360,22 @@ function szomszedCheck(cella, bei, bej){
 
                     if (idx1 != -1) {
                         
-                        
-
-                        if(tablaData[idx1][idx1 - 1].szin == !cella.szin){
+                        if(tablaData[idx1][x].szin == !cella.szin){
                             idx1--;
+                            x--;
                             masSzinVolt1 = true;
                         }
-                        else if(tablaData[idx1][idx1 - 1].szin == null && masSzinVolt1){
+                        else if(tablaData[idx1][x].szin == null && masSzinVolt1){
                             
-                            tablaData[idx1][idx1 - 1].kattint = true;
-                            var cell = document.getElementById(''+idx1+''+ (idx1 - 1));
+                            tablaData[idx1][x].kattint = true;
+                            var cell = document.getElementById(''+idx1+''+ (x));
                             cell.style.backgroundColor = "red";
+                            cell.addEventListener('click', function(){
+                                kor(fordit);
+                            });
                             idx1 = -1;
                         }
-                        else if((tablaData[idx1][idx1 - 1].szin == cella.szin || tablaData[idx1][idx1 - 1].szin == null ) && !masSzinVolt1 || (tablaData[idx1][idx1 - 1].szin == cella.szin || tablaData[idx1][idx1 - 1].szin == null ) && masSzinVolt1){
+                        else if((tablaData[idx1][x].szin == cella.szin || tablaData[idx1][x].szin == null ) && !masSzinVolt1 || (tablaData[idx1][x].szin == cella.szin || tablaData[idx1][x].szin == null ) && masSzinVolt1){
                             idx1 = -1;
                         }
                         
@@ -361,19 +383,22 @@ function szomszedCheck(cella, bei, bej){
                     
 
                     if (idx2 != meret) {
-                        if(tablaData[idx2][idx2].szin == !cella.szin){
+                        if(tablaData[idx2][y].szin == !cella.szin){
                             idx2++;
+                            y++;
                             masSzinVolt2 = true;
                         }
-                        else if(tablaData[idx2][idx2].szin == null && masSzinVolt2){
+                        else if(tablaData[idx2][y].szin == null && masSzinVolt2){
                             
-                            tablaData[idx2][idx2].kattint = true;
-                            var cell = document.getElementById(''+idx2+''+ idx2++);
+                            tablaData[idx2][y].kattint = true;
+                            var cell = document.getElementById(''+idx2+''+ y);
                             cell.style.backgroundColor = "red";
-                            cell.innerHTML += 'a';
+                            cell.addEventListener('click', function(){
+                                kor(fordit);
+                            });
                             idx2 = meret;
                         }
-                        else if((tablaData[idx2][idx2].szin == cella.szin || tablaData[idx2][idx2].szin == null) && !masSzinVolt2 || (tablaData[idx2][idx2].szin == cella.szin || tablaData[idx2][idx2].szin == null ) && masSzinVolt2){
+                        else if((tablaData[idx2][y].szin == cella.szin || tablaData[idx2][y].szin == null) && !masSzinVolt2 || (tablaData[idx2][y].szin == cella.szin || tablaData[idx2][y].szin == null ) && masSzinVolt2){
                             idx2 = meret;
                         }
                     }
@@ -383,7 +408,18 @@ function szomszedCheck(cella, bei, bej){
                 //Srég-jobbradőlt
                 case 3:
                 idx1 = Number(bei - 1);
+                x = bej + 1;
+                if(bej + 1 > meret - 1){
+                    x = meret - 1;
+                }else{
+                    x = bej + 1;
+                }
                 idx2 = Number(bei + 1);
+                if(bej - 1 < 0){
+                    y = 0;
+                }else{
+                    y = bej - 1;
+                }
 
                 masSzinVolt1 = false;
                 masSzinVolt2 = false;
@@ -392,38 +428,49 @@ function szomszedCheck(cella, bei, bej){
 
                     if (idx1 != -1) {
                         
-                        if(tablaData[idx1][idx1 + 1].szin == !cella.szin){
+                        if(tablaData[idx1][x].szin == !cella.szin){
                             idx1--;
+                            x++;
                             masSzinVolt1 = true;
                         }
-                        else if(tablaData[idx1][idx1 + 1].szin == null && masSzinVolt1){
+                        else if(tablaData[idx1][x].szin == null && masSzinVolt1){
                             
-                            tablaData[idx1][idx1 + 1].kattint = true;
-                            var cell = document.getElementById(''+idx1+''+ (idx1));
+                            var cell = document.getElementById(''+idx1+''+ (x));
                             cell.style.backgroundColor = "red";
+                            tablaData[idx1][x].kattint = true;
+                            cell.addEventListener('click', function(){
+                                kor(fordit);
+                            });
                             idx1 = -1;
+                            x = meret;
                         }
-                        else if((tablaData[idx1][idx1 + 1].szin == cella.szin || tablaData[idx1][idx1 + 1].szin == null ) && !masSzinVolt1 || (tablaData[idx1][idx1 + 1].szin == cella.szin || tablaData[idx1][idx1 + 1].szin == null ) && masSzinVolt1){
+                        else if((tablaData[idx1][x].szin == cella.szin || tablaData[idx1][x].szin == null ) && !masSzinVolt1 || (tablaData[idx1][x].szin == cella.szin || tablaData[idx1][x].szin == null ) && masSzinVolt1){
                             idx1 = -1;
+                            x = meret;
                         }
                         
                     }
-                    
-                    
+
+                    console.log(y + ''+idx2);
                     if (idx2 != meret) {
-                        if(tablaData[idx2][idx2 - 1].szin == !cella.szin){
+                        if(tablaData[idx2][y].szin == !cella.szin){
                             idx2++;
+                            if(y != 0){
+                                y--;
+                            }
                             masSzinVolt2 = true;
                         }
-                        else if(tablaData[idx2][idx2 - 1].szin == null && masSzinVolt2){
+                        else if(tablaData[idx2][y].szin == null && masSzinVolt2){
                             
-                            var cell = document.getElementById(''+idx2+''+ (idx2 - 1));
-                            cell.style.backgroundColor = "green";
-                            tablaData[idx2][idx2 - 1].kattint = true;
-                            cell.innerHTML += 'a';
+                            var cell = document.getElementById(''+idx2+''+ (y));
+                            cell.style.backgroundColor = "red";
+                            tablaData[idx2][y].kattint = true;
+                            cell.addEventListener('click', function(){
+                                kor(fordit);
+                            });
                             idx2 = meret;
                         }
-                        else if((tablaData[idx2][idx2 - 1].szin == cella.szin || tablaData[idx2][idx2 - 1].szin == null) && !masSzinVolt2 || (tablaData[idx2][idx2 - 1].szin == cella.szin || tablaData[idx2][idx2 - 1].szin == null ) && masSzinVolt2){
+                        else if((tablaData[idx2][y].szin == cella.szin || tablaData[idx2][y].szin == null) && !masSzinVolt2 || (tablaData[idx2][y].szin == cella.szin || tablaData[idx2][y].szin == null ) && masSzinVolt2){
                             idx2 = meret;
                         }
                     }
