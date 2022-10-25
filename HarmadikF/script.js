@@ -10,6 +10,19 @@ var gameArea = {
         this.canvas.id = "vaszon";
         document.getElementById("jatekhely").appendChild(this.canvas);
         this.interval = setInterval(updateGameArea, 16.3);
+
+        window.addEventListener('keydown', function(e){
+            gameArea.keys = (gameArea.keys || []);
+            gameArea.keys[e.key.charCodeAt(0)] = (e.type == "keydown");
+        })
+
+        window.addEventListener('keyup', function(e){
+            gameArea.keys[e.key.charCodeAt(0)] = (e.type == "keydown");
+        })
+
+        window.addEventListener('wheel', function(e){
+            gameArea.gorgo = e.deltaY * -0.5;
+        })
     },
     clear: function () {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -25,8 +38,6 @@ var haz = {
     magassag: 100,
     draw: function (x, y, scale) {
         ctx = gameArea.context;
-        
-        //console.log(x);
         
         this.oldalak[0] = x - this.szelesseg * scale + 25; // bal
         this.oldalak[1] = x + this.szelesseg * scale - 25; // jobb
@@ -62,31 +73,59 @@ var haz = {
         ctx.fill();
     }
 }
+
+function player(xHely, yHely)  {
+    this.x = xHely;
+    this.y = yHely;
+    this.spdSkala = 1.5;
+    this.xSpeed = 0.0;
+    this.ySpeed = 0.0;
+
+    this.update = function(){
+        ctx = gameArea.context;
+
+        ctx.beginPath();
+        ctx.fillStyle = "black";
+        ctx.arc(this.x, this.y, 20, 0, 2*Math.PI);
+        ctx.fill();
+    }
+
+    this.newPos = function(){
+        this.x += (this.spdSkala * this.xSpeed);
+        this.y += (this.spdSkala * this.ySpeed);
+    }
+
+}
+
 var wWidth;
 var wHeight;
-var x = 0
-var y = 0;
-
-var valtas = false;
+var juan;
 
 function updateGameArea(){
     gameArea.clear();
-    haz.draw(x, y, 4);
-    gameArea.context.strokeText("szobd gi a kecim :^)", x - 20 * 30, y + 250);
 
-    if(x < 850 && y != 801 && y != 0){
-        x += 3;
-    }else if(y < 800){
-        y += 3;
-    }else if(y == 801 && x > 0){
-        x -= 3;
-    }else if(x == 0 && y > 0){
-        y -= 3;
-    }
+    juan.xSpeed = 0;
+    juan.ySpeed = 0;
+
+    if(gameArea.keys && gameArea.keys[97]) {juan.xSpeed = -1;}
+    if(gameArea.keys && gameArea.keys[100]) {juan.xSpeed = 1;}
+    if(gameArea.keys && gameArea.keys[119]) {juan.ySpeed = -1;}
+    if(gameArea.keys && gameArea.keys[115]) {juan.ySpeed = 1;}
+
+    if(gameArea.gorgo > 0 && (juan.spdSkala + 0.5 < 2.5)) {juan.spdSkala += 0.5;}
+    if(gameArea.gorgo < 0 && (juan.spdSkala - 0.5 > 0.5)) {juan.spdSkala -= 0.5;}
+    gameArea.gorgo = 0;
+
+    console.log(juan.spdSkala);
+
+    juan.newPos();
+    juan.update();
 }
+   
 
 function Game(){
     gameArea.start();
     wWidth = gameArea.canvas.width;
     wHeight = gameArea.canvas.height;
+    juan = new player(wWidth / 2, wHeight / 2, 1);
 }
