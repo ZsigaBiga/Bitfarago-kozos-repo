@@ -85,7 +85,7 @@ function hangSzenzor(xHely, yHely) {
         this.radius = player.spdSkala * 10 * 5;
         var erzek = false;
 
-        if(Math.sqrt(Math.pow(this.x - (player.x + player.meret / 2), 2) + Math.pow(this.y - (player.y + player.meret / 2), 2)) <= this.radius + 100){
+        if(Math.sqrt(Math.pow(this.x - (player.x + player.meret / 2), 2) + Math.pow(this.y - (player.y + player.meret / 2), 2)) <= this.radius + 100 && !(player.xSpeed == 0 && player.ySpeed == 0)){
             erzek = true;
         }
 
@@ -108,7 +108,7 @@ function hangSzenzor(xHely, yHely) {
         ctx.fill();
         ctx.fillStyle = "black";
         
-        ctx.strokeStyle = "#ff990053";
+        ctx.strokeStyle = "#ff990020";
         ctx.moveTo(this.x + this.radius + 100, this.y);
         ctx.arc(this.x, this.y, this.radius + 100, 0, 2*Math.PI);
         ctx.stroke();
