@@ -1,0 +1,17 @@
+.kozep{
+    margin: 0 auto;
+}
+
+.kapuField, .kapuFieldK{
+    display: block;
+}
+
+.kapuFieldK {
+    margin-left: 150px;
+}
+
+button{
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

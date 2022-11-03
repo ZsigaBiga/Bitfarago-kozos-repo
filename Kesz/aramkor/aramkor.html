@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Áramkör</title>
+    <link rel="stylesheet" href="aramkorstill.css">
+    <script src="aramkorscript.js"></script>
+</head>
+<body onload="setup()">
+    <div class="kozep">
+        <div id="aramkorHely">
+            <input type="checkbox" onchange="check()" id="a">A
+            <div class="kapuField">
+                <label for="kapuTipus">Művelet:</label>
+                <select name="kapuTipus" id="kapu1">
+                <option value="AND">AND</option>
+                <option value="OR">OR</option>
+                <option value="NAND">NAND</option>
+                <option value="NOR">NOR</option>
+                <option value="XOR">XOR</option>
+                </select>
+            </div>
+            <input type="checkbox" onchange="check()" id="b">B 
+            
+            <div class="kapuFieldK">
+                <label for="kapuTipus">Művelet:</label>
+                <select name="kapuTipus" id="kapu3">
+                <option value="AND">AND</option>
+                <option value="OR">OR</option>
+                <option value="NAND">NAND</option>
+                <option value="NOR">NOR</option>
+                <option value="XOR">XOR</option>
+                </select>
+                <span id="output"></span>
+            </div>
+
+            <input type="checkbox" onchange="check()" id="c">C
+            <div class="kapuField">
+                <label for="kapuTipus">Művelet:</label>
+                <select name="kapuTipus" id="kapu2">
+                <option value="AND">AND</option>
+                <option value="OR">OR</option>
+                <option value="NAND">NAND</option>
+                <option value="NOR">NOR</option>
+                <option value="XOR">XOR</option>
+                </select>
+            </div>
+            <input type="checkbox" onchange="check()" id="d">D
+        </div>
+        <p>Csak a checkbox megnyomásakor látszódik a változás!</p>
+    </div>
+    
+</body>
+</html>
