@@ -1,0 +1,45 @@
+body{
+    background-image: url("hatter.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-size: 16px;
+}
+
+.container{
+    display: flex;
+}
+
+#objHely{
+    width: 25%;
+    margin: 0 auto;
+    background-color: rgba(125, 125, 125, 0.95);
+    border: black solid 2px;
+    border-radius: 5%;
+    text-align: center;
+    display: inline;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+button{
+    display: inline;
+    background-color: rgba(125, 125, 125, 0.65);
+    width: 75px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+    
+}
+
+@media only screen and (max-width: 885px){
+    body{
+        font-size: 1.65vw;
+    }
+}
